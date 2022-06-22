@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../../src/assets/img/Logo_omar_blanco.svg'
+import logo from '../../src/assets/img/Logo_omar_blanco.svg';
+import CartWidget from '../components/CartWidget'
 
 const Navbar = () => {
     return (
@@ -11,6 +12,7 @@ const Navbar = () => {
                     <li><a href="#index">Home</a></li>
                     <li><a href="#index">Tienda</a></li>
                     <li><a href="#index">Inciar Sesión</a></li>
+                    <CartWidget />
                 </ul>
                 </div>
             </nav>
