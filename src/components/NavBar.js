@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../src/assets/img/Logo_omar_blanco.svg';
+import Logo from '../../src/assets/img/Logo_omar_blanco.svg';
 import CartWidget from '../components/CartWidget'
 
 const Navbar = () => {
@@ -7,7 +7,7 @@ const Navbar = () => {
         <>
             <nav style={styles.backgroundColorNav}>
                 <div className="nav-wrapper">
-                <a href="#index.html" className="brand-logo"><img className='responsive-img' src={logo} alt="Logo_omar" style={styles.img_logo}/></a>
+                <a href="#index.html" className="brand-logo"><img className='responsive-img' src={Logo} alt="Logo_omar" style={styles.img_logo}/></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><a href="#index">Home</a></li>
                     <li><a href="#index">Tienda</a></li>
