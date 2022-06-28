@@ -1,13 +1,29 @@
 import React, {useState} from 'react';
 import Mug_doreamon from '../../src/assets/img/doraemon_mug.jpg';
 import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.all.js';
+import CartWidget from './CartWidget';
+
 
 const ItemListContainer = ({titulo}) => {
 
     const [contador, setContador] = useState(1);
 
+    const mugDoraemonInventory = 10;
+
     const addClickbtn = () => {
-        setContador(contador + 1);
+        if (contador < mugDoraemonInventory) {
+            setContador(contador + 1);
+        } else {
+            setContador(contador);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: 'No se cuenta con mas inventario de este producto.',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+        
     }
 
     const removeClickbtn = () => {
@@ -18,12 +34,11 @@ const ItemListContainer = ({titulo}) => {
                 title: 'No puedes agregar menos de 1 producto.',
                 showConfirmButton: false,
                 timer: 1500
-              })
+            })
             setContador(contador);
         } else {
             setContador(contador - 1);    
-        }
-        
+        }    
     }
 
     return (
@@ -33,7 +48,7 @@ const ItemListContainer = ({titulo}) => {
                     <h3>{titulo}</h3>
                 </div>
                 <div className='row'>
-                    <div className='col s12 m6'>
+                    <div className='col s12 m4 l3'>
                         <div className="card cyan lighten-5">
                             <div className="card-image waves-effect waves-block waves-light">
                                 <img src={Mug_doreamon} className="activator circle responsive-img" alt="mug_1" />
@@ -59,6 +74,7 @@ const ItemListContainer = ({titulo}) => {
 }
 
 export default ItemListContainer;
+
 
 const styles = {
 
