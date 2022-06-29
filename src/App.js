@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <ItemListContainer titulo='Lista de items'/>
+      <ItemListContainer titulo='Lista de items' stock='10'/>
     </> 
   );
 }

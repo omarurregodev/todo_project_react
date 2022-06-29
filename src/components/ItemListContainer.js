@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ItemCount from './ItemCount';
-import Mug_doreamon from '../../src/assets/img/doraemon_mug.jpg';
-import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.all.js';
 
 
 
-const ItemListContainer = ({titulo}) => {
+const ItemListContainer = ({titulo, stock}) => {
 
 
     return (
@@ -14,7 +12,7 @@ const ItemListContainer = ({titulo}) => {
                 <div className='row'>
                     <h3>{titulo}</h3>
                 </div>
-                <ItemCount />
+                <ItemCount stock={stock}/>
             </div>       
         </>
     )

@@ -4,14 +4,12 @@ import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.all.js';
 
 
 
-const ItemCount = () => {
+const ItemCount = ({stock}) => {
 
     const [contador, setContador] = useState(1);
 
-    const mugDoraemonInventory = 10;
-
     const addClickbtn = () => {
-        if (contador < mugDoraemonInventory) {
+        if (contador < stock) {
             setContador(contador + 1);
         } else {
             setContador(contador);
