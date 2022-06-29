@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../../src/assets/img/Logo_omar_blanco.svg';
-import CartWidget from '../components/CartWidget'
+import CartWidget from '../components/CartWidget';
+
 
 const Navbar = () => {
     return (

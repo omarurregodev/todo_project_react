@@ -2,12 +2,13 @@ import React from 'react';
 import { FaCartArrowDown } from 'react-icons/fa';
 
 
+
 //let contador = 1;
 
-const CartWidget = ({}) => {
+const CartWidget = () => {
     return (
         <>
-            <li style={styles.botonCart}><a href="#shopping_cart" style={styles.iconSize}><FaCartArrowDown /></a><span style={styles.contadorCartNumber}></span></li>
+            <li style={styles.botonCart}><a href="#shopping_cart" style={styles.iconSize}><FaCartArrowDown /></a><span style={styles.contadorCartNumber}>0</span></li>
         </>
     )
 }
