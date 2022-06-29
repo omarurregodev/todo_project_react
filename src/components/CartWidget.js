@@ -5,10 +5,10 @@ import { FaCartArrowDown } from 'react-icons/fa';
 
 //let contador = 1;
 
-const CartWidget = () => {
+const CartWidget = ({initialCart}) => {
     return (
         <>
-            <li style={styles.botonCart}><a href="#shopping_cart" style={styles.iconSize}><FaCartArrowDown /></a><span style={styles.contadorCartNumber}>0</span></li>
+            <li style={styles.botonCart}><a href="#shopping_cart" style={styles.iconSize}><FaCartArrowDown /></a><span style={styles.contadorCartNumber}>{initialCart}</span></li>
         </>
     )
 }

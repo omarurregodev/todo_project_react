@@ -3,8 +3,7 @@ import ItemCount from './ItemCount';
 
 
 
-const ItemListContainer = ({titulo, stock}) => {
-
+const ItemListContainer = ({titulo, stock, initialCount}) => {
 
     return (
         <>
@@ -12,7 +11,7 @@ const ItemListContainer = ({titulo, stock}) => {
                 <div className='row'>
                     <h3>{titulo}</h3>
                 </div>
-                <ItemCount stock={stock}/>
+                <ItemCount stock={stock} initialCount={initialCount}/>
             </div>       
         </>
     )

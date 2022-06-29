@@ -9,8 +9,8 @@ import '../node_modules/materialize-css/dist/js/materialize.min.js';
 const App = () => {
   return (
     <>
-      <Navbar />
-      <ItemListContainer titulo='Lista de items' stock='10'/>
+      <Navbar initialCart='0' />
+      <ItemListContainer titulo='Lista de items' stock='10' initialCount='1' />
     </> 
   );
 }

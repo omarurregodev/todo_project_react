@@ -3,7 +3,7 @@ import Logo from '../../src/assets/img/Logo_omar_blanco.svg';
 import CartWidget from '../components/CartWidget';
 
 
-const Navbar = () => {
+const Navbar = ({initialCart}) => {
     return (
         <>
             <nav style={styles.backgroundColorNav}>
@@ -13,7 +13,7 @@ const Navbar = () => {
                     <li><a href="#index">Home</a></li>
                     <li><a href="#index">Tienda</a></li>
                     <li><a href="#index">Inciar Sesión</a></li>
-                    <CartWidget />
+                    <CartWidget initialCart={initialCart}/>
                 </ul>
                 </div>
             </nav>

@@ -4,9 +4,9 @@ import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.all.js';
 
 
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock, initialCount}) => {
 
-    const [contador, setContador] = useState(1);
+    const [contador, setContador] = useState(initialCount);
 
     const addClickbtn = () => {
         if (contador < stock) {
