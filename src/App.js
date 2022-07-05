@@ -7,10 +7,11 @@ import '../node_modules/materialize-css/dist/js/materialize.min.js';
 
 
 const App = () => {
+  let initialCount = 1;
   return (
     <>
       <Navbar initialCart='0' />
-      <ItemListContainer titulo='Lista de items' stock='10' initialCount='1' />
+      <ItemListContainer titulo='Lista de items' stock='10' initialCount={initialCount} />
     </> 
   );
 }

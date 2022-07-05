@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Mug_doreamon from '../../src/assets/img/doraemon_mug.jpg';
 import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.all.js';
+import ItemList from '../components/ItemList';
 
 
 
@@ -61,29 +62,9 @@ const ItemCount = ({stock, initialCount}) => {
 
     return (
         <>
-            <div className="row">
-                <div className="col s12 m4 l4">
-                <div className="card cyan lighten-5">
-                    <div className="card-image">
-                        <img src={Mug_doreamon} className="activator circle responsive-img" alt="mug_1" />
-                        <button className="btn-floating btn-large halfway-fab waves-effect waves-light light-green" onClick={AddToCart}><i className="material-icons">add</i></button>
-                    </div>
-                    <div className="card-content">
-                        <span className="card-title  grey-text text-darken-4">Mug de Doraemon</span>
-                        <p className='activator' style={styles.p_desc_item}>Tazón para cafe con la cara de Doraemon el Gato Cósmico...</p>
-                        <div className='row' style={styles.row_add_container}>
-                            <button className='btn-floating waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
-                            <span className='' style={styles.contador_number}>{contador}</span>
-                            <button className='btn-floating waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
-                        </div>
-                    </div>
-                    <div className="card-reveal">
-                        <span className="card-title grey-text text-darken-4">Mug de Doraemon<i className="material-icons right">close</i></span>
-                        <p>Tazón para cafe con la cara de Doraemon el Gato Cósmico.</p>
-                    </div>
-                </div>
-                </div>
-            </div>    
+
+        <ItemList Mug_doreamon={Mug_doreamon} Contador={contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/>
+            
         </>
     )
 }
@@ -91,18 +72,3 @@ const ItemCount = ({stock, initialCount}) => {
 export default ItemCount;
 
 
-const styles = {
-    p_desc_item: {
-        paddingBottom: '1rem',
-        cursor: 'pointer',
-    },
-    row_add_container: {
-        display: 'flex',
-        alignItems: 'center',
-        paddingLeft: '1rem',
-    },
-    contador_number: {
-        fontSize: '2rem',
-        margin: '0rem 1.5rem',
-    }
-}
