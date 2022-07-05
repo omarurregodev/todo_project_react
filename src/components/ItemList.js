@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Item from '../components/Item';
+import Mug_doreamon from '../../src/assets/img/doraemon_mug.jpg'; // preguntar sobre las imagenes, como poderlas cargar desde un item del array
+
 
 
 const itemsArray = [
@@ -16,7 +18,7 @@ const promesa = new Promise((res, rej) => {
     }, 2000);
 })
 
-const ItemList = ({Mug_doreamon, Contador, AddToCart, removeClickbtn, addClickbtn}) => {
+const ItemList = ({Contador, AddToCart, removeClickbtn, addClickbtn}) => {
 
     const [productos, setProductos] = useState([]);
 
@@ -36,7 +38,7 @@ const ItemList = ({Mug_doreamon, Contador, AddToCart, removeClickbtn, addClickbt
                     <div className="col s12 m4 l4" key={data.id}>
                     <div className="card cyan lighten-5">
                         <div className="card-image">
-                            <img src={Mug_doreamon} className="activator circle responsive-img" alt="mug_1" />
+                            <img src={Mug_doreamon} className="activator circle responsive-img" alt="mug" />
                             <button className="btn-floating btn-large halfway-fab waves-effect waves-light light-green" onClick={AddToCart}><i className="material-icons">add</i></button>
                         </div>
                         <div className="card-content">
@@ -49,7 +51,7 @@ const ItemList = ({Mug_doreamon, Contador, AddToCart, removeClickbtn, addClickbt
                                 <button className='btn-floating waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
                             </div>
                         </div>
-                        <div class="card-action">
+                        <div className="card-action">
                             <p className=''>Stock disponible: {data.stock}</p>
                         </div>
                         <div className="card-reveal">

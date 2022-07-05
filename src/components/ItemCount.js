@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Mug_doreamon from '../../src/assets/img/doraemon_mug.jpg';
 import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.all.js';
 import ItemList from '../components/ItemList';
 
@@ -63,7 +62,7 @@ const ItemCount = ({stock, initialCount}) => {
     return (
         <>
 
-        <ItemList Mug_doreamon={Mug_doreamon} Contador={contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/>
+        <ItemList Contador={contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/>
             
         </>
     )
