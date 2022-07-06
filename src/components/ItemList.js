@@ -34,30 +34,9 @@ const ItemList = ({Contador, AddToCart, removeClickbtn, addClickbtn}) => {
         <>
         <div className="row">
             {productos.map((data) => {
-                return(
+                return( 
                     <div className="col s12 m4 l4" key={data.id}>
-                    <div className="card cyan lighten-5">
-                        <div className="card-image">
-                            <img src={Mug_doreamon} className="activator circle responsive-img" alt="mug" />
-                            <button className="btn-floating btn-large halfway-fab waves-effect waves-light light-green" onClick={AddToCart}><i className="material-icons">add</i></button>
-                        </div>
-                        <div className="card-content">
-                            <span className="card-title  grey-text text-darken-4">{data.name}</span>
-                            <p className='activator' style={styles.p_desc_item}>{data.desc}</p>
-                            <p className='' style={styles.p_desc_item}>$ {data.price}</p>
-                            <div className='row' style={styles.row_add_container}>
-                                <button className='btn-floating waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
-                                <span className='' style={styles.contador_number}>{Contador}</span>
-                                <button className='btn-floating waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
-                            </div>
-                        </div>
-                        <div className="card-action">
-                            <p className=''>Stock disponible: {data.stock}</p>
-                        </div>
-                        <div className="card-reveal">
-                            <Item name_mug={data.name} descripcion={data.desc}/>
-                        </div>
-                    </div>
+                        <Item name_mug={data.name} descripcion={data.desc} data={data} Contador={Contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/>
                     </div>  
                 )         
             })}
@@ -67,19 +46,3 @@ const ItemList = ({Contador, AddToCart, removeClickbtn, addClickbtn}) => {
 }
 
 export default ItemList;
-
-const styles = {
-    p_desc_item: {
-        paddingBottom: '1rem',
-        cursor: 'pointer',
-    },
-    row_add_container: {
-        display: 'flex',
-        alignItems: 'center',
-        paddingLeft: '1rem',
-    },
-    contador_number: {
-        fontSize: '2rem',
-        margin: '0rem 1.5rem',
-    }
-}
