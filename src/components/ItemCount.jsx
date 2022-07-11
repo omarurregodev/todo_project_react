@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.all.js';
-import ItemList from '../components/ItemList';
+import Swal from 'sweetalert2/dist/sweetalert2.all.js';
+import ItemList from './ItemList';
 
 
 

@@ -2,7 +2,7 @@ import React from "react";
 import Mug_doreamon from '../../src/assets/img/doraemon_mug.jpg';
 import ItemDetail from '../components/ItemDetailContainer';
 
-const Item = ({descripcion, name_mug, data, Contador, AddToCart, removeClickbtn, addClickbtn}) => {
+const Item = ({data, Contador, AddToCart, removeClickbtn, addClickbtn}) => {
     return (
         <>
             <div className="card cyan lighten-5">
@@ -23,7 +23,7 @@ const Item = ({descripcion, name_mug, data, Contador, AddToCart, removeClickbtn,
                 <div className="card-action">
                     <p className=''>Stock disponible: {data.stock}</p>
                 </div>
-                <ItemDetail descripcion={descripcion} Mug_doreamon={Mug_doreamon} name_mug={name_mug} price={data.price}/>
+                <ItemDetail data={data} descripcion={data.desc} Mug_doreamon={Mug_doreamon} name_mug={data.name} price={data.price}/>
             </div>      
         </>
     )

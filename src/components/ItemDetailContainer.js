@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const ItemDetail = ({name_mug, Mug_doreamon, descripcion, price}) => {
+const ItemDetail = ({data, name_mug, Mug_doreamon, descripcion, price}) => {
     return(
         <div className="card-reveal">
             <span className="card-title grey-text text-darken-4">{name_mug}<i className="material-icons right">close</i></span>
