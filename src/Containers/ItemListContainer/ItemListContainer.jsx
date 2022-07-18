@@ -8,13 +8,13 @@ import ItemList from './ItemList';
 const ItemListContainer = ({greeting}) => {
 
     const [products, setProducts] = useState([]);
-    const [loaded, setLoaded] = useState(true);
+    //const [loaded, setLoaded] = useState(true);
 
     //const { categoryId } = useParams();
 
-    if (ItemsArray.length > 0) {
+    setInterval(() => {
         setProducts(ItemsArray);
-    }
+    }, 2000);
 
     // useEffect(() => {
     //     const URL = categoryId
@@ -33,7 +33,7 @@ const ItemListContainer = ({greeting}) => {
             <div className='container'>
                 <div className='row'>
                     <h3>{greeting}</h3>
-                    <ItemList products={products} />}
+                    <ItemList products={products} />
                 </div>
                 {/* <ItemCount stock={stock} initialCount={initialCount}/> */}
             </div>       
