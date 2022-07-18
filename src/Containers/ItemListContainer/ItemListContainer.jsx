@@ -12,6 +12,7 @@ const ItemListContainer = ({greeting}) => {
 
     //const { categoryId } = useParams();
 
+    
     setInterval(() => {
         setProducts(ItemsArray);
     }, 2000);

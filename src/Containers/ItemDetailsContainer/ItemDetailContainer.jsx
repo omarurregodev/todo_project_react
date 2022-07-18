@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useEffect, useState, useParams} from 'react';
+import ItemDetail from "./ItemDetail";
+import ItemsArray from '../../Data/data';
 
 
-const ItemDetail = ({data, Mug_doreamon}) => {
+export const ItemDetailsContainer = () => {
+
+    const [product, setProduct] = useState([]);
+
+    setInterval(() => {
+        setProduct(ItemsArray);
+    }, 2000);
+
+
     return(
-        <div className="card-reveal">
-            <span className="card-title grey-text text-darken-4">{data.name_mug}<i className="material-icons right">close</i></span>
-            <img src={Mug_doreamon} className="activator circle responsive-img" alt="mug" />
-            <p>{data.descripcion}</p>
-            <p className='' style={styles.p_desc_item}>$ {data.price}</p>
-        </div>
+        <>
+            <ItemDetail product={product} />
+        </>
     )
 }
 
-export default ItemDetail;
+export default ItemDetailsContainer;
 
 const styles = {
     p_desc_item: {
