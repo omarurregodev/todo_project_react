@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Swal from 'sweetalert2/dist/sweetalert2.all.js';
-import ItemList from './ItemList';
+
 
 
 
@@ -62,7 +62,14 @@ const ItemCount = ({stock, initialCount}) => {
     return (
         <>
 
-        <ItemList Contador={contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/>
+        <div className='row' style={styles.row_add_container}>
+            <button className='btn-floating waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
+            <span className='' style={styles.contador_number}>{contador}</span>
+            <button className='btn-floating waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
+            <button className="btn-floating btn-large halfway-fab waves-effect waves-light light-green" onClick={AddToCart}><i className="material-icons">add</i></button>        
+        </div>
+
+        {/* <ItemList Contador={contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/> */}
             
         </>
     )
@@ -70,4 +77,25 @@ const ItemCount = ({stock, initialCount}) => {
 
 export default ItemCount;
 
-
+const styles = {
+    cardTitle: {
+        fontSize: '1.2rem',
+    },
+    p_desc_item: {
+        paddingBottom: '1rem',
+        cursor: 'pointer',
+    },
+    row_add_container: {
+        display: 'flex',
+        alignItems: 'center',
+        paddingLeft: '1rem',
+    },
+    contador_number: {
+        fontSize: '2rem',
+        margin: '0rem 1.5rem',
+    },
+    itemImg: {
+        Height: '2rem',
+        width: 'auto',
+    }
+}

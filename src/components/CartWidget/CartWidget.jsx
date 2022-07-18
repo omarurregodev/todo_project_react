@@ -8,7 +8,7 @@ import { FaCartArrowDown } from 'react-icons/fa';
 const CartWidget = ({initialCart}) => {
     return (
         <>
-            <li style={styles.botonCart}><a href="#shopping_cart" style={styles.iconSize}><FaCartArrowDown /></a><span style={styles.contadorCartNumber}>{initialCart}</span></li>
+            <FaCartArrowDown style={styles.iconSize}/>
         </>
     )
 }
