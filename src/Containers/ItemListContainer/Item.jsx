@@ -5,22 +5,16 @@ import { Link } from 'react-router-dom';
 const Item = ({product}) => {
     return (
         <>
-        <div className="card cyan lighten-5">
+        <div className="card cyan lighten-5 center-align">
             <div className="card-image">
                 <img src={product.url} className="activator itemImg" alt="mug" />
             </div>
             <div className="card-content">
                 <span className="card-title grey-text text-darken-4 cardTitle">{product.name}</span>
                 <Link to={`/product/${product.id}`}>
-                    <button className="btn-floating waves-effect waves-light light-blue"> {product.id}Descripción</button>
+                    <button className="waves-effect waves-light btn">Descripción</button>
                 </Link>
-                <p className='activator' style={styles.p_desc_item}>Descripción...</p>
                 <p className='' style={styles.p_desc_item}>$ {product.price}</p>
-                <div className='row' style={styles.row_add_container}>
-                    <button className='btn-floating waves-effect waves-light deep-orange'><i className="material-icons">remove</i></button>
-                    <span className='' style={styles.contador_number}></span>
-                    <button className='btn-floating waves-effect waves-light light-bue'><i className="material-icons">add</i></button>
-                </div>
             </div>
             <div className="card-action">
                 <p className=''>Stock disponible: {product.stock}</p>
@@ -38,8 +32,7 @@ const styles = {
         fontSize: '1.2rem',
     },
     p_desc_item: {
-        paddingBottom: '1rem',
-        cursor: 'pointer',
+        paddingTop: '1rem',
     },
     row_add_container: {
         display: 'flex',

@@ -39,19 +39,8 @@ const ItemListContainer = ({greeting}) => {
 
     return (
         <div>
-      
-
-        {loading ? <span>loading...</span> : <ItemList products={products} />}
-    </div>
-        // <>
-        //     <div className='container'>
-        //         <div className='row'>
-        //             <h3>{greeting}</h3>
-        //             <ItemList products={products} />
-        //         </div>
-        //         {/* <ItemCount stock={stock} initialCount={initialCount}/> */}
-        //     </div>       
-        // </>
+            {loading ? <span>loading...</span> : <ItemList products={products} />}
+        </div>
     )
 }
 

@@ -37,15 +37,16 @@ const ItemDetailsContainer = () => {
 
     return(
         
-        <div>
-        <ItemCount
-          stock={5} initial={1} onAdd={() => alert("Agregado")}
-        />
-        {loading ? <span>loading...</span> : 
-           <ItemDetail product={product} />
-          }        
-        
-      </div>
+        <div className='container center-align'>
+            <div className='row'>
+                <h3 className=''>Detalle del Productos</h3>
+            </div>
+            <div className='row'>
+                {loading ? <span>loading...</span> : 
+                    <ItemDetail product={product} />
+                }
+            </div>           
+        </div>
     )
 }
 

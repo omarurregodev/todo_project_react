@@ -1,34 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ItemCount from '../../components/ItemCount/ItemCount';
 
 
 
 const ItemDetail = ({product}) => {
     return (
-        <div style={styles.infoContainer}>
-            <img style={styles.img} src={product.url} alt={product.title} />
-            <div style={styles.infoTextContainer}>
-                <div style={styles.infoText}>
-                <h1>{product.title}</h1>
-                <span>${product.price}</span>
-                <p>{product.description}</p>
-                </div>
-                <Link to="/cart">
-                    <button>Finalizar compra</button>
-                </Link>
-            </div>
-            </div>
+      <>
+        <div className='col s12 m6 l6'>
+          <img className='z-depth-4' style={styles.img} src={product.url} alt={product.title} />
+        </div>
+        <div className='col s12 m6 l6' style={styles.infoContainer}>
+          <h5>{product.name}</h5>
+          <p>{product.desc}</p>
+          <p style={styles.countNumber}>${product.price}</p> 
+          <ItemCount stock={product.stock} initial={0} />
+        </div>
+      </>
+        
     );
 }
 const styles = {
+    countNumber: {
+      fontSize: '2rem',
+      margin: '1rem 0rem',
+    },
     infoContainer: {
       display: "flex",
-      flexDirection: "row",
+      flexDirection: "column",
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
     },
     img: {
-      width: "40%"
+      width: "100%"
     },
     infoTextContainer: {
       display: "flex",

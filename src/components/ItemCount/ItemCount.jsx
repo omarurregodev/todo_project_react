@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import Swal from 'sweetalert2/dist/sweetalert2.all.js';
+import { Link } from 'react-router-dom';
 
 
 
 
-const ItemCount = ({stock, initialCount}) => {
+const ItemCount = ({stock, initial}) => {
 
-    const [contador, setContador] = useState(initialCount);
+    const [contador, setContador] = useState(initial);
 
     const addClickbtn = () => {
         if (contador < stock) {
@@ -63,10 +64,14 @@ const ItemCount = ({stock, initialCount}) => {
         <>
 
         <div className='row' style={styles.row_add_container}>
-            <button className='btn-floating waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
+            <button className='btn-floating btn-small waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
             <span className='' style={styles.contador_number}>{contador}</span>
-            <button className='btn-floating waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
-            <button className="btn-floating btn-large halfway-fab waves-effect waves-light light-green" onClick={AddToCart}><i className="material-icons">add</i></button>        
+            <button className='btn-floating btn-small waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>        
+        </div>
+        <div className='row'>
+            <Link to="/cart">
+                <button className='waves-effect waves-light btn' onClick={AddToCart}>Finalizar compra</button>
+            </Link>
         </div>
 
         {/* <ItemList Contador={contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/> */}
@@ -91,7 +96,7 @@ const styles = {
         paddingLeft: '1rem',
     },
     contador_number: {
-        fontSize: '2rem',
+        fontSize: '1.5rem',
         margin: '0rem 1.5rem',
     },
     itemImg: {
