@@ -8,52 +8,38 @@ import ItemCount from '../../components/ItemCount/ItemCount';
 
 const ItemDetailsContainer = () => {
 
+    const { itemId } = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const params = useParams();
 
-    const productDetail = productos.filter((producto) => producto.id === parseInt(params.id));
-
-
-    const getItem = new Promise((resolve, reject) => {
-        let afterPromises = true;
+    const getItem = new Promise((res, rej) => {
         setTimeout(() => {
-            if (afterPromises) {
-                resolve(productDetail);
-            } else {
-                reject("Fallo en Get Detail");
-            }
+            res(productos);
         }, 2000);
     });
 
 
     useEffect(() => {
         getItem.then((data) => {
-            setProduct(data);
+            const getNewData = data.find(product => product.id === itemId)
+            setProduct(getNewData);
+            setLoading(false);
         }).catch((err) => {
             console.log(err);
-        }).finally(() => {
-            setLoading(false);
         })
-    }, [params.id]);
+    }, [itemId]);
 
 
     return(
-        
         <div>
-        <ItemCount
-          stock={5} initial={1} onAdd={() => alert("Agregado")}
-        />
-        {loading ? <span>loading...</span> : 
-          product.map((item) => {
-            return <ItemDetail key={item.id} productDetail={item} />
-          })         
-        } 
-      </div>
-        // <>
-        //     <ItemDetail product={product} />
-        // </>
+            <ItemCount
+            stock={5} initial={1} onAdd={() => alert("Agregado")}
+            />
+            {loading ? <span>loading...</span> : 
+                <ItemDetail product={product} />  
+            } 
+        </div>
     )
 }
 

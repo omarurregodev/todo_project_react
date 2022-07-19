@@ -11,7 +11,7 @@ const Item = ({product}) => {
             </div>
             <div className="card-content">
                 <span className="card-title grey-text text-darken-4 cardTitle">{product.name}</span>
-                <Link to={product.id.toString()}>
+                <Link to={`/product/${product.id}`}>
                     <button className="btn-floating waves-effect waves-light light-blue"> {product.id}Descripción</button>
                 </Link>
                 <p className='activator' style={styles.p_desc_item}>Descripción...</p>
