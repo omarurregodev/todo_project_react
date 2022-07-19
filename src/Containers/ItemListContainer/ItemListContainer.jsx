@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import productos from '../../Data/data.json';
 import ItemList from './ItemList';
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 
 
 
