@@ -30,7 +30,7 @@ const ItemListContainer = ({greeting}) => {
         }).finally(() => {
             setLoading(false);
         })
-    }, [products]);
+    }, []);
 
 
 
