@@ -4,6 +4,7 @@ import ItemList from './ItemList';
 import { useParams } from "react-router-dom"
 
 
+
 const getData = new Promise((resolve, reject) => {
     let afterPromises = true;
 
