@@ -19,7 +19,10 @@ const Navbar = ({initialCart}) => {
                 <Link className='brand-logo' to={'/'}>
                     <img className='responsive-img' src={Logo} alt="Logo_omar" style={styles.img_logo}/>
                 </Link>
-                <div className="nav-wrapper" style={styles.links}>    
+                <div className="nav-wrapper" style={styles.links}>
+                    <Link to={'/'}>
+                        <a href='/' style={styles.link}>Home</a>
+                    </Link>  
                     {categories.map((category) => <NavLink key={category.id} to={category.route} style={styles.link}>{category.name}</NavLink>)}
                     <Link to={'/cart'} style={styles.botonCart} >
                         <CartWidget />
@@ -41,6 +44,7 @@ const styles = {
     },
     link: {
         padding: '0rem 2rem',
+        textDecoration: 'none',
     },
     backgroundColorNav: {
         background: 'rgba(40, 61, 59, 1)',
