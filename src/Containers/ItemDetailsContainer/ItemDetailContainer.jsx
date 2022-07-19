@@ -43,9 +43,9 @@ const ItemDetailsContainer = () => {
             </div>
             <div className='row'>
                 {loading 
-                ? <div class="progress container">
-                    <div class="indeterminate"></div>
-                </div>
+                ?   <div class="progress container">
+                        <div class="indeterminate"></div>
+                    </div>
                 : <ItemDetail product={product} />  
                 }
             </div>           

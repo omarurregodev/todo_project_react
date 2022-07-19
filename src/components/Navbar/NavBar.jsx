@@ -21,7 +21,9 @@ const Navbar = ({initialCart}) => {
                 </Link>
                 <div className="nav-wrapper" style={styles.links}>    
                     {categories.map((category) => <NavLink key={category.id} to={category.route} style={styles.link}>{category.name}</NavLink>)}
-                    <Link to="/cart"><CartWidget style={styles.botonCart} initialCart={initialCart} /></Link>
+                    <Link to={'/cart'} style={styles.botonCart} >
+                        <CartWidget />
+                    </Link>
                 </div>
             </nav>
         </>
@@ -51,7 +53,7 @@ const styles = {
         cursor: 'pointer'
     },
     botonCart: {
-        display: 'flex',
-        alignItems: 'center',
+        fontSize: '2rem',
+        paddingRight: '1rem'
     },
 }
