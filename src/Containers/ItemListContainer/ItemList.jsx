@@ -6,7 +6,7 @@ import Item from './Item';
 const ItemList = ({products}) => {
 
     return (
-        <div className="container row">
+        <div className="row">
         {products.map((data) => { 
             return (
                 <div className="col s12 m4 l4" >

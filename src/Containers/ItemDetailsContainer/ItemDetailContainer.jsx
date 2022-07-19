@@ -42,8 +42,11 @@ const ItemDetailsContainer = () => {
                 <h3 className=''>Detalle del Productos</h3>
             </div>
             <div className='row'>
-                {loading ? <span>loading...</span> : 
-                    <ItemDetail product={product} />
+                {loading 
+                ? <div class="progress container">
+                    <div class="indeterminate"></div>
+                </div>
+                : <ItemDetail product={product} />  
                 }
             </div>           
         </div>

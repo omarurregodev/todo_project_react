@@ -38,8 +38,15 @@ const ItemListContainer = ({greeting}) => {
 
 
     return (
-        <div>
-            {loading ? <span>loading...</span> : <ItemList products={products} />}
+        <div className='container'>
+            <div className='row'>
+                <h3>Lista de productos</h3>
+            </div>
+            {loading 
+            ? <div class="progress container">
+                <div class="indeterminate"></div>
+            </div>
+            : <ItemList products={products} />}
         </div>
     )
 }

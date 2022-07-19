@@ -13,7 +13,7 @@ import {
 
 
 const App = () => {
-  let initialCount = 1;
+
   return (
     <BrowserRouter>
       <Navbar />

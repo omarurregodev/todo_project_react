@@ -8,7 +8,7 @@ import { FaCartArrowDown } from 'react-icons/fa';
 const CartWidget = ({initialCart}) => {
     return (
         <>
-            <FaCartArrowDown style={styles.iconSize}/>
+            <FaCartArrowDown className='valign-wrapper' style={styles.iconSize}/>
         </>
     )
 }
@@ -22,9 +22,9 @@ const styles = {
     },
 
     iconSize: {
-        fontSize: '2rem',
-        margin: '0 auto',
+        fontSize: '3rem',
         paddingRight: '1rem',
+        
     },
     contadorCartNumber: {
         fontSize: '1.5rem',
