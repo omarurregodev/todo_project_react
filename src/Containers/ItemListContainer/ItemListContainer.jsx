@@ -43,9 +43,9 @@ const ItemListContainer = ({greeting}) => {
                 <h3>Lista de productos</h3>
             </div>
             {loading 
-            ?   <div class="progress container">
-                    <div class="indeterminate"></div>
-                </div>
+            ?   <div className="progress container">
+                    <div className="indeterminate"></div>
+                </div>         
             : <ItemList products={products} />}
         </div>
     )

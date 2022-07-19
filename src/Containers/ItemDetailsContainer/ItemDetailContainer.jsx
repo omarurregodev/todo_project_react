@@ -41,11 +41,11 @@ const ItemDetailsContainer = () => {
             <div className='row'>
                 <h3 className=''>Detalle del Productos</h3>
             </div>
-            <div className='row'>
+            <div className='row' style={styles.progressBarContainer}>
                 {loading 
-                ?   <div class="progress container">
-                        <div class="indeterminate"></div>
-                    </div>
+                ?   <div className="progress container">
+                        <div className="indeterminate"></div>
+                    </div>             
                 : <ItemDetail product={product} />  
                 }
             </div>           
@@ -60,4 +60,9 @@ const styles = {
         paddingBottom: '1rem',
         cursor: 'pointer',
     },
+    progressBarContainer: {
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyItems: 'center'
+    }
 }

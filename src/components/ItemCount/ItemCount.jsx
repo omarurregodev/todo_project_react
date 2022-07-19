@@ -68,13 +68,11 @@ const ItemCount = ({stock, initial}) => {
             <span className='' style={styles.contador_number}>{contador}</span>
             <button className='btn-floating btn-small waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>        
         </div>
-        <div className='row'>
+        <div className='row' style={styles.row_add_container}>
             <Link to="/cart">
                 <button className='waves-effect waves-light btn' onClick={AddToCart}>Finalizar compra</button>
             </Link>
         </div>
-
-        {/* <ItemList Contador={contador} addClickbtn={addClickbtn} removeClickbtn={removeClickbtn} AddToCart={AddToCart}/> */}
             
         </>
     )
@@ -94,6 +92,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         paddingLeft: '1rem',
+        margin: '1rem 0rem',
     },
     contador_number: {
         fontSize: '1.5rem',
