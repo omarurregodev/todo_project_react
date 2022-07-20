@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import Swal from 'sweetalert2/dist/sweetalert2.all.js';
-import { Link } from 'react-router-dom';
 
 
 
 
-const ItemCount = ({stock, initial}) => {
+
+const ItemCount = ({stock, initial, ShowEndBtn}) => {
 
     const [contador, setContador] = useState(initial);
-    const [cartState, setCartState] = useState(true);
+
 
     const addClickbtn = () => {
         if (contador < stock) {
@@ -42,7 +42,7 @@ const ItemCount = ({stock, initial}) => {
     }
 
     const AddToCart = () => {
-        console.log(cartState);
+  
         if (contador > 0) {
             Swal.fire({
                 position: 'top-end',
@@ -51,7 +51,7 @@ const ItemCount = ({stock, initial}) => {
                 showConfirmButton: false,
                 timer: 1500
             })
-            setCartState(false);
+            ShowEndBtn(); // AQUI ESTOY CAMBIANDO EL ESTADO, PARA QUE ME RENDERICE EL BTN DE FINALIZAR COMPRA Y ME ENVIE AL VIEW DE CART
         } else {
             Swal.fire({
                 position: 'top-end',
@@ -63,32 +63,18 @@ const ItemCount = ({stock, initial}) => {
         }
     }
 
-    const ResetAddBtn = () => {
-        setCartState(true);
-    }
+    
 
     return (
         <>
-            {
-                cartState     
-                ?   
-                <>
-                    <div className='row' style={styles.row_add_container}>
-                        <button className='btn-floating btn-small waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
-                        <span className='' style={styles.contador_number}>{contador}</span>
-                        <button className='btn-floating btn-small waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
-                    </div>
-                    <div className='row' style={styles.row_add_container}>
-                        <button className='waves-effect waves-light btn' onClick={AddToCart}>Agregar al carrito</button>
-                    </div>
-                </>
-                :
-                <Link to={'/cart'}>
-                    <div className='row' style={styles.row_add_container}>
-                        <button className='waves-effect waves-light btn' onClick={ResetAddBtn}>Finalizar compra</button>
-                    </div>
-                </Link>
-            }
+            <div className='row' style={styles.row_add_container}>
+                <button className='btn-floating btn-small waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
+                <span className='' style={styles.contador_number}>{contador}</span>
+                <button className='btn-floating btn-small waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
+            </div>
+            <div className='row' style={styles.row_add_container}>
+                <button className='waves-effect waves-light btn' onClick={AddToCart}>Agregar al carrito</button>
+            </div>
         </>
     )
 }

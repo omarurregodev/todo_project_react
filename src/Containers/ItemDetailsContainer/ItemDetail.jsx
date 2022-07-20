@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCount from '../../components/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 
 
 const ItemDetail = ({product}) => {
+
+    const [cartState, setCartState] = useState(true);
+
+    const ShowEndBtn = () => {
+      setCartState(false);
+    }
+    const ResetAddBtn = () => {
+      setCartState(true);
+    }
+    
     return (
       <>
         <div className='col s12 m6 l6'>
@@ -14,7 +24,13 @@ const ItemDetail = ({product}) => {
           <h5>{product.name}</h5>
           <p>{product.desc}</p>
           <p style={styles.countNumber}>${product.price}</p> 
-          <ItemCount stock={product.stock} initial={0} />
+          {cartState ? <ItemCount stock={product.stock} initial={0} ShowEndBtn={ShowEndBtn}/> : 
+          <Link to={'/cart'}>
+              <div className='row' style={styles.row_add_container}>
+                  <button className='waves-effect waves-light btn' onClick={ResetAddBtn}>Finalizar compra</button>
+              </div>
+          </Link>
+          }   
         </div>
       </>
         
