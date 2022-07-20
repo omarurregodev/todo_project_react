@@ -69,17 +69,19 @@ const ItemCount = ({stock, initial}) => {
 
     return (
         <>
-            <div className='row' style={styles.row_add_container}>
-                <button className='btn-floating btn-small waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
-                <span className='' style={styles.contador_number}>{contador}</span>
-                <button className='btn-floating btn-small waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>        
-            </div>
             {
                 cartState     
                 ?   
-                <div className='row' style={styles.row_add_container}>
-                    <button className='waves-effect waves-light btn' onClick={AddToCart}>Agregar al carrito</button>
-                </div>
+                <>
+                    <div className='row' style={styles.row_add_container}>
+                        <button className='btn-floating btn-small waves-effect waves-light deep-orange' onClick={removeClickbtn}><i className="material-icons">remove</i></button>
+                        <span className='' style={styles.contador_number}>{contador}</span>
+                        <button className='btn-floating btn-small waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
+                    </div>
+                    <div className='row' style={styles.row_add_container}>
+                        <button className='waves-effect waves-light btn' onClick={AddToCart}>Agregar al carrito</button>
+                    </div>
+                </>
                 :
                 <Link to={'/cart'}>
                     <div className='row' style={styles.row_add_container}>
