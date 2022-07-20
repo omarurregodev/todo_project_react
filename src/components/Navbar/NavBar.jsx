@@ -30,7 +30,6 @@ const Navbar = ({initialCart}) => {
                 </div>
             </nav>
         </>
-        
     )
 }
 
