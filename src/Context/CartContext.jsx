@@ -30,7 +30,8 @@ const CartProvider = ({ children }) => {
         // console.log(dataItem.id);
         // const found = productAdded.find(product => product.id === dataItem.id);
         // console.log(found);
-        if (isInCart(dataItem.id)) {
+        const validationIsInCart = productAdded.some(product => product.id === dataItem.id);
+        if (validationIsInCart) {
             const addedCartArr = [...productAdded];
             const found = addedCartArr.find(product => product.id === dataItem.id);
             found.quantity += dataItem.quantity;
@@ -38,6 +39,7 @@ const CartProvider = ({ children }) => {
             console.log("repetido");
         } else {
             setProductAdded([...productAdded, dataItem]);
+            console.log('nop entro donde es');
         }
         console.log(productAdded);       
     }
@@ -50,7 +52,8 @@ const CartProvider = ({ children }) => {
     }
 
     const isInCart = (id) => {
-        productAdded.some(product => product.id === id);
+        // const validationIsInCart = productAdded.some(product => product.id === id);
+        // console.log(validationIsInCart);
     }
 
     const clearCart = () => {
