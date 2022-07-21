@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext }from 'react';
 import Logo from '../../assets/img/Logo_omar_blanco.svg';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link, NavLink } from "react-router-dom";
+import { contexto } from '../../Context/CartContext';
 
 
 
 const Navbar = ({initialCart}) => {
+
+    const { cartWidgetValue } = useContext(contexto);
 
     const categories = [
         {name: "Camisetas", id: 0, route: "/category/camisetas"},
@@ -25,7 +28,7 @@ const Navbar = ({initialCart}) => {
                     </Link>  
                     {categories.map((category) => <NavLink key={category.id} to={category.route} style={styles.link}>{category.name}</NavLink>)}
                     <Link to={'/cart'} style={styles.botonCart} >
-                        <CartWidget />
+                        <CartWidget cartWidgetValue={cartWidgetValue}/>
                     </Link>
                 </div>
             </nav>

@@ -5,7 +5,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 
 
 
-const ItemCount = ({stock, initial, ShowEndBtn}) => {
+const ItemCount = ({stock, initial, OnAdd, ShowEndBtn}) => {
 
     const [contador, setContador] = useState(initial);
 
@@ -51,6 +51,7 @@ const ItemCount = ({stock, initial, ShowEndBtn}) => {
                 showConfirmButton: false,
                 timer: 1500
             })
+            OnAdd(contador);
             ShowEndBtn(); // AQUI ESTOY CAMBIANDO EL ESTADO, PARA QUE ME RENDERICE EL BTN DE FINALIZAR COMPRA Y ME ENVIE AL VIEW DE CART
         } else {
             Swal.fire({

@@ -6,29 +6,26 @@ import Cart from '../src/components/Cart/Cart';
 import './App.css';
 import '../node_modules/materialize-css/dist/css/materialize.min.css';
 import '../node_modules/materialize-css/dist/js/materialize.min.js';
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CartProvider from '../src/Context/CartContext';
 
 
 const App = () => {
 
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<ItemListContainer greeting='Bienvenido' />} />
-        <Route path='/category/:categoryName' element={<ItemListContainer greeting='Bienvenido'/>}/>
-        <Route path='product/:itemId' element={<ItemDetailsContainer />}/>
-        <Route path='/cart' element={<Cart />} />
-        <Route></Route>
-      </Routes>
-    </BrowserRouter>
 
-      // <Navbar initialCart='0' />
-      // <ItemListContainer titulo='Lista de items' stock='10' initialCount={initialCount} />
+    <BrowserRouter>
+      <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer greeting='Bienvenido' />} />
+          <Route path='/category/:categoryName' element={<ItemListContainer greeting='Bienvenido'/>}/>
+          <Route path='product/:itemId' element={<ItemDetailsContainer />}/>
+          <Route path='/cart' element={<Cart />} />
+          <Route></Route>
+        </Routes>
+      </CartProvider>
+    </BrowserRouter>
 
   );
 }

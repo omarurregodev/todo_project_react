@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ItemCount from '../../components/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { contexto } from '../../Context/CartContext';
+
 
 
 
 const ItemDetail = ({product}) => {
+
+    const { addCartWidgetValue } = useContext(contexto);
 
     const [cartState, setCartState] = useState(true);
 
     const ShowEndBtn = () => {
       setCartState(false);
     }
+
     const ResetAddBtn = () => {
       setCartState(true);
+    }
+
+    const OnAdd = (contador) => {
+      addCartWidgetValue(contador);
     }
     
     return (
@@ -24,7 +33,7 @@ const ItemDetail = ({product}) => {
           <h5>{product.name}</h5>
           <p>{product.desc}</p>
           <p style={styles.countNumber}>${product.price}</p> 
-          {cartState ? <ItemCount stock={product.stock} initial={0} ShowEndBtn={ShowEndBtn}/> : 
+          {cartState ? <ItemCount stock={product.stock} initial={0} OnAdd={OnAdd} ShowEndBtn={ShowEndBtn}/> : 
           <Link to={'/cart'}>
               <div className='row' style={styles.row_add_container}>
                   <button className='waves-effect waves-light btn' onClick={ResetAddBtn}>Finalizar compra</button>
