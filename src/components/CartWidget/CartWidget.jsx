@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaCartArrowDown } from 'react-icons/fa';
+import { cartContexto } from '../../Context/CartContext';
 
 
 
+const CartWidget = () => {
 
-//let contador = 1;
+    const { cartWidgetValue } = useContext(cartContexto);
+    const quantityCart = cartWidgetValue;
 
-const CartWidget = ({cartWidgetValue}) => {
     return (
         <>
-            <FaCartArrowDown /> <span>{cartWidgetValue}</span>
+            <FaCartArrowDown /> <span>{quantityCart === 0 ? "" : quantityCart}</span>
         </>
     )
 }

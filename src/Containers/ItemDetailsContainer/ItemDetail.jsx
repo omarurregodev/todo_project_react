@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import ItemCount from '../../components/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
-import { contexto } from '../../Context/CartContext';
+import { cartContexto } from '../../Context/CartContext';
 
 
 
 
 const ItemDetail = ({product}) => {
 
-    const { addCartWidgetValue } = useContext(contexto);
+    const { addNewProduct } = useContext(cartContexto);
 
     const [cartState, setCartState] = useState(true);
 
@@ -21,7 +21,8 @@ const ItemDetail = ({product}) => {
     }
 
     const OnAdd = (contador) => {
-      addCartWidgetValue(contador);
+      addNewProduct({...product, quantity: contador});
+
     }
     
     return (
