@@ -27,25 +27,26 @@ const CartProvider = ({ children }) => {
     }, [productAdded])
 
     const addNewProduct = (dataItem) => {
-
+        // console.log(dataItem.id);
+        // const found = productAdded.find(product => product.id === dataItem.id);
+        // console.log(found);
         if (isInCart(dataItem.id)) {
             const addedCartArr = [...productAdded];
-            const found = productAdded.find(product => product.id === dataItem.id);
+            const found = addedCartArr.find(product => product.id === dataItem.id);
             found.quantity += dataItem.quantity;
             setProductAdded(addedCartArr);
+            console.log("repetido");
         } else {
             setProductAdded([...productAdded, dataItem]);
         }
-        console.log(productAdded);
-        
+        console.log(productAdded);       
     }
 
 
     const removeProduct = (id) => {
-
-        const newProductAddedArray = productAdded.filter(productAdded => productAdded.id !== id)
+        const addedCartArr = [...productAdded];
+        const newProductAddedArray = addedCartArr.filter(productAdded => productAdded.id !== id)
         setProductAdded(newProductAddedArray);
-        
     }
 
     const isInCart = (id) => {
@@ -54,12 +55,11 @@ const CartProvider = ({ children }) => {
 
     const clearCart = () => {
         setProductAdded([]);
-        
     }
 
 
     return (
-        <Provider value={{addNewProduct, cartWidgetValue, productAdded, removeProduct, getQtyProduct}}>
+        <Provider value={{addNewProduct, cartWidgetValue, productAdded, removeProduct, getQtyProduct, clearCart}}>
             {children}
         </Provider>
     )
