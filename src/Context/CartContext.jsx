@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
 import { useEffect } from "react";
+import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 
 
 
@@ -36,19 +37,35 @@ const CartProvider = ({ children }) => {
             const found = addedCartArr.find(product => product.id === dataItem.id);
             found.quantity += dataItem.quantity;
             setProductAdded(addedCartArr);
-            console.log("repetido");
+
         } else {
             setProductAdded([...productAdded, dataItem]);
-            console.log('nop entro donde es');
         }
-        console.log(productAdded);       
+      
     }
 
 
     const removeProduct = (id) => {
         const addedCartArr = [...productAdded];
-        const newProductAddedArray = addedCartArr.filter(productAdded => productAdded.id !== id)
+        const newProductAddedArray = addedCartArr.filter(productAdded => productAdded.id !== id);
         setProductAdded(newProductAddedArray);
+        const nameObject = addedCartArr.find(productoAdded => productoAdded.id === id);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Has eliminado el producto ' + nameObject.name,
+            showConfirmButton: false,
+            timer: 1500
+        })
+        if (newProductAddedArray.length === 0) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: 'Has vaciado tu carrito',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
     }
 
     const isInCart = (id) => {
