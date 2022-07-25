@@ -2,36 +2,47 @@ import React, { useEffect, useState } from 'react';
 import productos from '../../Data/data.json';
 import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
-
-
-
-const getData = new Promise((resolve, reject) => {
-    let afterPromises = true;
-
-    setTimeout(() => {
-       if (afterPromises) {
-        resolve(productos)
-       } else {
-        reject('Fallo en Get Data');
-       }
-    }, 2000);
-});
+import { db } from '../../firebase/firebase';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 
 
 const ItemListContainer = ({greeting}) => {
-    const {categoryName} = useParams();
+    const { categoryName } = useParams();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
-        getData.then((data) => {
-            const getCategory = data.filter(x => x.category === categoryName)
-            categoryName ? setProducts(getCategory) : setProducts(data) 
-        }).catch((err) => {
-            console.log(err);
-        }).finally(() => {
-            setLoading(false);
-        })
+        const productCollection = collection(db, 'items');
+        const queryCategory = query(productCollection, where('category', '==', `${categoryName}`));
+        if (typeof categoryName === 'undefined') {
+            getDocs(productCollection).then(result => {
+                const productList = result.docs.map(doc => {
+                    return {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                })
+                setProducts(productList);
+            }).catch((err) => {
+                console.log(err);
+            }).finally(() => {
+                setLoading(false);
+            });
+        } else {
+            getDocs(queryCategory).then(result => {
+                const productList = result.docs.map(doc => {
+                    return {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                })
+                setProducts(productList);
+            }).catch((err) => {
+                console.log(err);
+            }).finally(() => {
+                setLoading(false);
+            });
+        }
     }, [categoryName]);
 
 

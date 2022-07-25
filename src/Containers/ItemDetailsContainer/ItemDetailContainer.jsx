@@ -2,7 +2,9 @@ import React, { useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from "./ItemDetail";
 import productos from '../../Data/data.json';
-import ItemCount from '../../components/ItemCount/ItemCount';
+import { db } from '../../firebase/firebase';
+import { getDoc, collection, doc } from 'firebase/firestore';
+
 
 
 
@@ -12,25 +14,19 @@ const ItemDetailsContainer = () => {
     const [loading, setLoading] = useState(true);
 
 
-
-  
-
-    const getItem = new Promise((res,rej) =>{
-        setTimeout(() =>{
-            res(productos);
-        }, 2000);
-        });
-
-
     useEffect(() => {
-        getItem.then((data) => {
-            const getNewData = data.find(product => product.id === itemId)
-            setProduct(getNewData)
-            setLoading(false);
+        const productCollection = collection(db, 'items');
+        const refItem = doc(productCollection, itemId);
+        getDoc(refItem).then(result => {
+            const productItem = {
+                id: result.id,
+                ...result.data(),
+            }
+            setProduct(productItem);
         }).catch((err) => {
-            console.log(err);
-
-            
+            console.log(err);         
+        }).finally(() => {
+            setLoading(false)
         })
     }, [itemId]);
 
