@@ -35,8 +35,38 @@ const CartProvider = ({ children }) => {
         if (validationIsInCart) {
             const addedCartArr = [...productAdded];
             const found = addedCartArr.find(product => product.id === dataItem.id);
-            found.quantity += dataItem.quantity;
-            setProductAdded(addedCartArr);
+            let foundqty = found.quantity;
+            let foundqtyNew = foundqty + dataItem.quantity;
+            if (foundqtyNew > dataItem.stock) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Supera el stock disponible',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else if (foundqtyNew <= dataItem.stock && foundqtyNew > dataItem.quantity) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Se ha modificado el item con éxito',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                found.quantity = dataItem.quantity;
+                setProductAdded(addedCartArr);
+            } else if (foundqtyNew <= dataItem.stock && foundqtyNew < dataItem.quantity) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Se ha modificado el item con éxito',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                found.quantity = dataItem.quantity;
+                setProductAdded(addedCartArr);
+            }
+            
 
         } else {
             setProductAdded([...productAdded, dataItem]);
