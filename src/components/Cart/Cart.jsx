@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { cartContexto } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
+import ItemCount from "../ItemCount/ItemCount";
+
 
 
 const Cart = () => {
@@ -9,7 +11,7 @@ const Cart = () => {
     const { clearCart } = useContext(cartContexto);
     const { removeProduct } = useContext(cartContexto);
     
-    
+    const { addNewProduct } = useContext(cartContexto);
 
     
     let totalPriceValue = 0;
@@ -18,7 +20,7 @@ const Cart = () => {
         totalPriceValue += products.quantity * products.price;
     });
    
-
+  
     
 
 
@@ -35,6 +37,9 @@ const Cart = () => {
                         <button className="waves-effect waves-light btn-small orange darken-1">Ver Catalogo</button>
                     </Link></>
                 : productAdded.map((data) => {
+                    const OnAdd = (contador) => {
+                        addNewProduct({...data, quantity: contador});
+                    }
                     return (
                         <div  key={data.id} className="row valign-wrapper z-depth-3">
                             <div className="col s1 m1 l1">
@@ -52,11 +57,13 @@ const Cart = () => {
                                     <h6>Precio total: $ {data.quantity * data.price}</h6>
                                 </div>
                             </div>
-                            <div className="col s4 m4 l4" style={styles.btnCartItem}>
-                                <Link to={`/product/${data.id}`}>
-                                    <button className="waves-effect waves-light btn-small blue lighten-1">Modificar</button>
-                                </Link>
-                                <button className="waves-effect waves-light btn-small red lighten-2" onClick={() => {removeProduct(data.id)}}>Eliminar</button>
+                            <div className="col s4 m4 l4 align-center valign-wrapper" style={styles.btnCartItem}>
+                                <div className="col">
+                                    <ItemCount stock={data.stock} initial={0} OnAdd={OnAdd} modificar="Modificar cantidad"></ItemCount>
+                                </div>
+                                <div className="col">
+                                    <button className="waves-effect waves-light btn-small red lighten-2" onClick={() => {removeProduct(data.id)}}>Eliminar Item</button>
+                                </div>
                             </div>
                         </div> 
                     )

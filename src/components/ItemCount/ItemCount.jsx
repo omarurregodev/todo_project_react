@@ -5,7 +5,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 
 
 
-const ItemCount = ({stock, initial, OnAdd, ShowEndBtn}) => {
+const ItemCount = ({stock, initial, OnAdd, ShowEndBtn, modificar}) => {
 
     const [contador, setContador] = useState(initial);
 
@@ -74,7 +74,10 @@ const ItemCount = ({stock, initial, OnAdd, ShowEndBtn}) => {
                 <button className='btn-floating btn-small waves-effect waves-light light-bue' onClick={addClickbtn}><i className="material-icons">add</i></button>
             </div>
             <div className='row' style={styles.row_add_container}>
-                <button className='waves-effect waves-light btn' onClick={AddToCart}>Agregar al carrito</button>
+                {modificar === 'Modificar cantidad' 
+                ?<button className='waves-effect waves-light btn-small blue lighten-1' onClick={AddToCart}>{modificar}</button>
+                : <button className='waves-effect waves-light btn' onClick={AddToCart}>Agregar al carrito</button>
+                }
             </div>
         </>
     )
@@ -95,6 +98,7 @@ const styles = {
         alignItems: 'center',
         paddingLeft: '1rem',
         margin: '1rem 0rem',
+        justifyContent: 'center'
     },
     contador_number: {
         fontSize: '1.5rem',
