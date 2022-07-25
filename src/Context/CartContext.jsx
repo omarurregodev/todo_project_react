@@ -45,6 +45,16 @@ const CartProvider = ({ children }) => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+            } else if (foundqtyNew <= dataItem.stock && foundqty < dataItem.quantity) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Se ha modificado el item con éxito',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                found.quantity += dataItem.quantity;
+                setProductAdded(addedCartArr);
             } else if (foundqtyNew <= dataItem.stock && foundqtyNew > dataItem.quantity) {
                 Swal.fire({
                     position: 'top-end',
@@ -55,17 +65,7 @@ const CartProvider = ({ children }) => {
                 })
                 found.quantity = dataItem.quantity;
                 setProductAdded(addedCartArr);
-            } else if (foundqtyNew <= dataItem.stock && foundqtyNew < dataItem.quantity) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Se ha modificado el item con éxito',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                found.quantity = dataItem.quantity;
-                setProductAdded(addedCartArr);
-            }
+            } 
             
 
         } else {
