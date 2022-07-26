@@ -8,6 +8,7 @@ import '../node_modules/materialize-css/dist/css/materialize.min.css';
 import '../node_modules/materialize-css/dist/js/materialize.min.js';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartProvider from '../src/Context/CartContext';
+import CarouselAds from './components/Slider/Carousel';
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
     <BrowserRouter>
       <CartProvider>
         <Navbar />
+        <CarouselAds />
         <Routes>
           <Route path='/' element={<ItemListContainer greeting='Bienvenido' />} />
           <Route path='/category/:categoryName' element={<ItemListContainer greeting='Bienvenido'/>}/>
