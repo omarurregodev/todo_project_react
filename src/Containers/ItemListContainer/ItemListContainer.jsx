@@ -11,38 +11,25 @@ const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     
-    useEffect(() => {
-        const productCollection = collection(db, 'items');
-        const queryCategory = query(productCollection, where('category', '==', `${categoryName}`));
-        if (typeof categoryName === 'undefined') {
-            getDocs(productCollection).then(result => {
-                const productList = result.docs.map(doc => {
-                    return {
-                        id: doc.id,
-                        ...doc.data()
-                    }
-                })
-                setProducts(productList);
-            }).catch((err) => {
-                console.log(err);
-            }).finally(() => {
-                setLoading(false);
-            });
-        } else {
-            getDocs(queryCategory).then(result => {
-                const productList = result.docs.map(doc => {
-                    return {
-                        id: doc.id,
-                        ...doc.data()
-                    }
-                })
-                setProducts(productList);
-            }).catch((err) => {
-                console.log(err);
-            }).finally(() => {
-                setLoading(false);
-            });
-        }
+    useEffect(() => {  
+        const queryCategory = categoryName
+        ? query(collection(db, 'items'), where('category', '==', `${categoryName}`))
+        :collection(db, 'items');
+
+        getDocs(queryCategory).then(result => {
+            const productList = result.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    ...doc.data()
+                }
+            })
+            setProducts(productList);
+        }).catch((err) => {
+            console.log(err);
+        }).finally(() => {
+            setLoading(false);
+        });
+
     }, [categoryName]);
 
 

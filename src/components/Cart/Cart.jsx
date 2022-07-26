@@ -59,7 +59,7 @@ const Cart = () => {
                             </div>
                             <div className="col s4 m4 l4 align-center valign-wrapper" style={styles.btnCartItem}>
                                 <div className="col">
-                                    <ItemCount stock={data.stock} initial={0} OnAdd={OnAdd} modificar="Modificar cantidad"></ItemCount>
+                                    <ItemCount stock={data.stock} initial={0} OnAdd={OnAdd} modificar="Modificar cantidad" count={data.quantity}></ItemCount>
                                 </div>
                                 <div className="col">
                                     <button className="waves-effect waves-light btn-small red lighten-2" onClick={() => {removeProduct(data.id)}}>Eliminar Item</button>
