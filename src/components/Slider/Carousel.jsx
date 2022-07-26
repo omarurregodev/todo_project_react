@@ -15,8 +15,11 @@ export default class CarouselAds extends Component {
         M.Carousel.init(this.Carousel, options);
     
         //Instance Plugin
-        let instance = M.Carousel.getInstance(this.Carousel);
-        instance.next(1);
+        setInterval(() => {
+            let instance = M.Carousel.getInstance(this.Carousel);
+            instance.next(1);
+        }, 8000);
+        
       }
 
       render() {
