@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { cartContexto } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 import ItemCount from "../ItemCount/ItemCount";
+import { useState } from "react";
+import FinalizedForm from "../FinalizedForm/FinalizedForm";
 
 
 
@@ -9,9 +11,12 @@ const Cart = () => {
 
     const { productAdded } = useContext(cartContexto);
     const { clearCart } = useContext(cartContexto);
-    const { removeProduct } = useContext(cartContexto);
-    
+    const { removeProduct } = useContext(cartContexto);  
     const { addNewProduct } = useContext(cartContexto);
+
+    const [ buyerData, setBuyerData ] = useState([]);
+
+    
 
     
     let totalPriceValue = 0;
@@ -25,7 +30,7 @@ const Cart = () => {
 
 
     return (
-        <div className="container center-align">
+        <div className="container center-align" style={styles.containerGeneral}>
             <div className="row">
                 <h3>Listado Carrito de Compras</h3>
                 <button className="waves-effect waves-light btn-small" onClick={clearCart}>Vaciar el Carrito</button>
@@ -69,9 +74,18 @@ const Cart = () => {
                     )
                 }
             )}
-            <div className="row">
-                <h3>Precio total: $ {totalPriceValue}</h3>
-            </div>
+            {productAdded.length === 0
+            ? <span></span>
+            : <>
+                <div className="row">
+                    <h3 className="right-align">Precio total: $ {totalPriceValue}</h3>
+                </div>
+                <FinalizedForm />
+                <div className="row">
+                    <button className="btn-large waves-effect waves-light green lighten-2"><i class="material-icons left">done</i>Finalizar Compra</button>
+                </div>
+            </>
+            }
         </div>
     )
 }
@@ -85,5 +99,8 @@ const styles = {
     },
     btnCartItem: {
         gap: '1rem'
+    },
+    containerGeneral: {
+        paddingTop:'4.5rem'
     }
 }

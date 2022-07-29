@@ -50,6 +50,10 @@ const styles = {
     },
     backgroundColorNav: {
         background: 'rgba(40, 61, 59, 1)',
+        position: 'fixed',
+        height: '4.5rem',
+        zIndex: '2',
+        top:'0'
     },
 
     img_logo: {

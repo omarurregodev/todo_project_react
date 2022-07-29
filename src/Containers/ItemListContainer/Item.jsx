@@ -4,23 +4,21 @@ import { Link } from 'react-router-dom';
 
 const Item = ({product}) => {
     return (
-        <>
         <div className="card cyan lighten-5 center-align">
             <div className="card-image">
-                <img src={product.url} className="activator itemImg" alt="mug" />
+                <img src={product.url} className="activator" style={styles.itemImg} alt="mug" />
             </div>
             <div className="card-content">
-                <span className="card-title grey-text text-darken-4 cardTitle">{product.name}</span>
+                <span className="card-title grey-text text-darken-4" style={styles.cardTitle}>{product.name}</span>
                 <Link to={`/product/${product.id}`}>
                     <button className="waves-effect waves-light btn">Descripción</button>
                 </Link>
-                <p className='' style={styles.p_desc_item}>$ {product.price}</p>
+                <p className='' style={styles.p_desc_item}>$ {product.price} c/u</p>
             </div>
             <div className="card-action">
                 <p className=''>Stock disponible: {product.stock}</p>
             </div>
         </div>      
-        </>
     )
 }
 
@@ -44,7 +42,8 @@ const styles = {
         margin: '0rem 1.5rem',
     },
     itemImg: {
-        Height: '2rem',
-        width: 'auto',
+        height: '27rem',
+        maxHeight: '100%',
+        //width: '100%',
     }
 }
