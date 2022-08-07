@@ -58,7 +58,7 @@ const styles = {
       alignItems: "center",
     },
     img: {
-      width: "100%"
+      width: "40vh"
     },
     infoTextContainer: {
       display: "flex",

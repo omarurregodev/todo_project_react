@@ -33,7 +33,7 @@ const ItemDetailsContainer = () => {
 
     return(
         
-        <div className='container center-align'>
+        <div className='container center-align' style={styles.genContainer}>
             <div className='row'>
                 <h3 className=''>Detalle del Productos</h3>
             </div>
@@ -52,6 +52,10 @@ const ItemDetailsContainer = () => {
 export default ItemDetailsContainer;
 
 const styles = {
+    genContainer: {
+        paddingTop: '4.5rem',
+        height: '80vh'
+    },
     p_desc_item: {
         paddingBottom: '1rem',
         cursor: 'pointer',
@@ -61,4 +65,5 @@ const styles = {
         alignItems: 'center',
         justifyItems: 'center'
     }
+
 }

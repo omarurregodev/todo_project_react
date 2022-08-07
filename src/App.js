@@ -8,7 +8,7 @@ import '../node_modules/materialize-css/dist/css/materialize.min.css';
 import '../node_modules/materialize-css/dist/js/materialize.min.js';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartProvider from '../src/Context/CartContext';
-
+import Footer from './components/Footer/Footer';
 
 
 const App = () => {
@@ -24,6 +24,7 @@ const App = () => {
           <Route path='product/:itemId' element={<ItemDetailsContainer />}/>
           <Route path='/cart' element={<Cart />} />
         </Routes>
+        <Footer />
       </CartProvider>
     </BrowserRouter>
 

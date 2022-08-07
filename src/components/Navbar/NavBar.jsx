@@ -18,7 +18,7 @@ const Navbar = ({initialCart}) => {
 
     return (
         <>
-            <nav style={styles.backgroundColorNav}>
+            <nav style={styles.backgroundColorNav} className="teal">
                 <Link className='brand-logo' to={'/'}>
                     <img className='responsive-img' src={Logo} alt="Logo_omar" style={styles.img_logo}/>
                 </Link>
@@ -49,7 +49,6 @@ const styles = {
         textDecoration: 'none',
     },
     backgroundColorNav: {
-        background: 'rgba(40, 61, 59, 1)',
         position: 'fixed',
         height: '4.5rem',
         zIndex: '2',
