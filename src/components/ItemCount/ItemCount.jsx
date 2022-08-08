@@ -52,7 +52,7 @@ const ItemCount = ({stock, initial, OnAdd, ShowEndBtn, modificar, count}) => {
                 timer: 1500
             })
             OnAdd(contador);
-            ShowEndBtn(); // AQUI ESTOY CAMBIANDO EL ESTADO, PARA QUE ME RENDERICE EL BTN DE FINALIZAR COMPRA Y ME ENVIE AL VIEW DE CART
+            ShowEndBtn();
         } else {
             Swal.fire({
                 position: 'top-end',

@@ -20,13 +20,6 @@ const FinalizedForm = ({fCompra}) => {
                 email: email,
                 phoneNumber: phoneNumber
             }
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Se ha registrado la compra en el sistema.',
-                showConfirmButton: false,
-                timer: 1500
-            })
             fCompra(dataComprador);
         } else {
             Swal.fire({

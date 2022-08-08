@@ -17,8 +17,3 @@ const CartWidget = () => {
 }
 
 export default CartWidget;
-
-const styles = {
-
-
-}

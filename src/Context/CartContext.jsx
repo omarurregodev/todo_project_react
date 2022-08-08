@@ -28,9 +28,6 @@ const CartProvider = ({ children }) => {
     }, [productAdded])
 
     const addNewProduct = (dataItem) => {
-        // console.log(dataItem.id);
-        // const found = productAdded.find(product => product.id === dataItem.id);
-        // console.log(found);
         const validationIsInCart = productAdded.some(product => product.id === dataItem.id);
         if (validationIsInCart) {
             const addedCartArr = [...productAdded];
@@ -84,11 +81,6 @@ const CartProvider = ({ children }) => {
                 timer: 1500
             })
         }
-    }
-
-    const isInCart = (id) => {
-        // const validationIsInCart = productAdded.some(product => product.id === id);
-        // console.log(validationIsInCart);
     }
 
     const clearCart = () => {

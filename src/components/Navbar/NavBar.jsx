@@ -2,19 +2,32 @@ import React from 'react';
 import Logo from '../../assets/img/Logo_omar_blanco.svg';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link, NavLink } from "react-router-dom";
+import { db } from '../../firebase/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { useState } from 'react';
 
 
 
 
+const Navbar = () => {
 
-const Navbar = ({initialCart}) => {
+    const [ categories, setCategories ] = useState([]);
+
+    
+    const categoriesCollection = collection(db, 'category');
+
+    getDocs(categoriesCollection).then(result => {
+        const categoriesList = result.docs.map(doc => {
+            return {
+                id: doc.id,
+                ...doc.data()
+            }
+        })
+        setCategories(categoriesList)
+    }, []);
 
 
-    const categories = [
-        {name: "Camisetas", id: 0, route: "/category/camisetas"},
-        {name: "Tazas", id: 1, route: "/category/tazas"},
-        {name: "Cuadernos", id: 2, route: "/category/cuadernos"},
-    ]
+ 
 
     return (
         <>
