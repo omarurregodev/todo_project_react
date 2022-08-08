@@ -1,70 +1,106 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://62f1371fcc3108080215c538--reactjs-omartorres-finalproject.netlify.app/">
+    <img src="./src/assets/img/Logo_omar_blanco.svg" alt="Logo" width="80" height="80">
+  </a>
 
-In the project directory, you can run:
+  <h3 align="center">Omar's E-commerce ReactJS</h3>
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Tabla de Contenido</summary>
+  <ol>
+    <li>
+      <a href="#sobre-el-proyecto">Sobre el Proyecto</a>
+      <ul>
+        <li><a href="#construido-con">Construido con:</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#empecemos">Empecemos</a>
+      <ul>
+        <li><a href="#prerequisitos">Prerequisitos</a></li>
+        <li><a href="#instalacion">Instalacion</a></li>
+      </ul>
+    </li>
+    <li><a href="#usos">Usos</a></li>
+    <li><a href="#contacto">Contact</a></li>
+  </ol>
+</details>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- SOBRE EL PROYECTO -->
+## Sobre el Proyecto
 
-### `npm test`
+Plataforma de e-commerce creada como Proyecto Final para la aprobación del curso ReactJS en CoderHouse, dictado por el profesor Alejandro Fernandez.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Construido con
 
-### `npm run build`
+En esta sección se listan la mayoria de las librerias/frameworks empleados para el desarrollo de la plataforma.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* React.js
+* Materialized
+* Javascript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- COMENCEMOS -->
+## Comencemos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+En esta sección se describen los pasos que se deben realizar para la descarga del repositorio y su puesta en marcha.
 
-### `npm run eject`
+### Prerequisitos
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A continuación, lista de cosas que se necesitan para la puesta en marcha de la platforma.
+* Carpeta para clonar el repositorio
+* npm packages instalado
+* react
+* react-router-dom
+* firebase
+* Materialized CSS
+### Instalacion
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_A continuación, el paso a paso para la puesta en marcha de la plataforma:_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clonar el repositorio
+   ```sh
+   git clone https://github.com/omarurregodev/todo_project_react.git
+   ```
+2. Instalación de paquetes NPM
+   ```sh
+   npm install
+   ```
+3. Instalación de ReactJS
+    ```sh
+    npm i react
+    ```
+4. Instalación de React Router DOM
+    ```sh
+    npm i react-router-dom
+    ```
+5. Instalación de Firebase
+    ```sh
+    npm i firebase
+    ```
+6. Instalación de Materialized CSS
+    ```sh
+    npm install materialize-css@next
+    ```
+7. Inicio de la aplicación
+   ```sh
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<!-- USOS -->
+## Usos
 
-## Learn More
+El presente repositorio puede ser usado como guía para la elaboración y estructuración de un E-commerce, ya que cuenta con las lógicas establecidas para el checkeo de inventario y carrito de compras.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- CONTACTO -->
+## Contacto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Omar Eduardo Torres Urrego - omarurrego07@gmail.com
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Link de Proyecto: [https://github.com/omarurregodev/todo_project_react](https://github.com/omarurregodev/todo_project_react)

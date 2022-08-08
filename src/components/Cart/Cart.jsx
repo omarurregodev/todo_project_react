@@ -41,7 +41,8 @@ const Cart = () => {
             updateDoc(updateCollection,{
                 stock: item.stock - item.quantity,
             })
-        })  
+        });
+        clearCart();
     }
 
     useEffect(() => {
